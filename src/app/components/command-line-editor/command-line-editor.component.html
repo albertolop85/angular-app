@@ -1,0 +1,41 @@
+
+<link rel="stylesheet" href="/assets/css/command-line-editor.css" />
+<div class="command-line-panel">
+  <div class="column-editor">
+    <br><br>
+    <h3>Command Line Editor</h3>
+    <br><br>
+    <div class="cmd-line-editor">
+      <label class="cmd-line-label">Commands</label>
+      <input [(ngModel)]="command" test-id="command-line-input" class="cmd-line-text" type="text" (keydown.enter)="applyCommand()" />
+      <button test-id="command-line-apply" class="cmd-line-apply-btn" (click)="applyCommand()" >Apply</button>
+      <br>
+      <br>
+      <button test-id="command-line-undo" class="cmd-line-btn" (click)="undoCommand()" >Undo</button>
+      <button test-id="command-line-redo" class="cmd-line-btn" (click)="redoCommand()" >Redo</button>
+    </div>
+    <div class="vertical-separator">
+      <br><br>
+    </div>
+    <div class="cmd-line-status">
+      <br><br>
+      <h3>Status and History</h3>
+      <br>
+      <div test-id="command-line-status-msg" *ngIf="error === ''">Status: {{status}}</div>
+      <div test-id="command-line-error-msg" class="cmd-line-error" *ngIf="error !== ''">Error: {{error}}</div>
+      <br>
+      <br>
+      <ol class="cmd-line-history">
+        <li class="cmd-line-history-elem" *ngFor="let cmd of commandHistory">
+          <label class="cmd-line-history-elem">{{cmd}}</label>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="column-canvas">
+    <br><br>
+    <h3>Molecule Viewer</h3>
+    <br><br>
+    <img [src]="imagePath" />
+  </div>
+</div>

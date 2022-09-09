@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/assets/css/menu.css" />
+<link rel="stylesheet" href="/assets/css/base.css" />
+<header class="header">
+  <div class="container">
+      <div class="btn-menu">
+          <label for="btn-menu" test-id="show-menu-button">☰</label>
+          <h1 test-id="show-menu-text">Structure Editor Modules</h1>
+      </div>
+      <img class="img-logo" src="assets/images/new-logo-sized_0.png" />
+      <nav class="menu">
+          <a href="#" routerLink="/home" routerLinkActive="active" test-id="top-menu-home-link">Return Home</a>
+          <a href="mailto:albertolop@gmail.com" target="_blank">Contact Us</a>
+      </nav>
+  </div>
+</header>
+<div class="capa">
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+  <div class="cont-menu">
+      <nav>
+          <a href="#" routerLink="/commandLineEditor" routerLinkActive="active" onclick="$('label.icon-equis').click()" test-id="menu-option-command-line">Command Line Editor</a>
+          <a href="#" routerLink="/batchModelChange" routerLinkActive="active" onclick="$('label.icon-equis').click()" test-id="menu-option-batch">Batch Model & Change</a>
+          <a href="#" routerLink="/molecularWeight" routerLinkActive="active" onclick="$('label.icon-equis').click()" test-id="menu-option-molecular">Molecular Weight Calculator</a>
+      </nav>
+      <label for="btn-menu" class="icon-equis" test-id="close-menu-button">✖️</label>
+  </div>
+</div>

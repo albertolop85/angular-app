@@ -1,0 +1,5 @@
+{
+  "allure": "true",
+  "baseUrl": "http://localhost:4200",
+  "inputParam1": "local"
+}

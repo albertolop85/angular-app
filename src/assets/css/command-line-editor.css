@@ -1,0 +1,66 @@
+.command-line-panel {
+  border-right: 4px ridge;
+  border-left: 4px ridge;
+  height: 100%;
+}
+
+.column-editor {
+  float: left;
+  width: 40%;
+  height: 100%;
+  border-right: 4px ridge;
+}
+
+.column-canvas {
+  float: left;
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.command-line-panel:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cmd-line-editor {
+  align-items: center;
+  width: 95%;
+}
+
+.cmd-line-label {
+  font-size: 13px;
+  margin-right: 1%;
+}
+
+.cmd-line-text {
+  width: 60%;
+}
+
+.cmd-line-apply-btn {
+  margin-left: 1%;
+  padding: 2px 2px;
+  font-size: 11px;
+}
+
+.cmd-line-btn {
+  padding: 2px 2px;
+  font-size: 11px;
+}
+
+.vertical-separator {
+  border-bottom: 4px ridge;
+}
+
+.cmd-line-error {
+  color: red;
+}
+
+.cmd-line-history {
+  width: 50%;
+  margin: auto;
+}
+
+.cmd-line-history-elem {
+  margin-left: 0px;
+}
