@@ -45,3 +45,7 @@ Thumbs.db
 /package-lock.json
 /.vscode
 /src/assets/images/cas-new-logo-sized_0.png
+/allure-report
+/allure-results
+/mochawesome-report
+/cypress/videos/*
