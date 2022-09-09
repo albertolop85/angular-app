@@ -7,15 +7,15 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "cypress:delete-reports": "rmdir mochawesome-report || true",
+    "set-prod": "SET ENV=prod",
+    "cypress:delete-reports": "rmdir /s /q mochawesome-report ",
+    "cypress:allure": "allure generate --clean && allure open",
     "cypress:open": "npx cypress open",
-    "cypress:open:prod": "SET ENV=prod & npx cypress open",
-    "cypress:allure:run": "npx cypress run && allure generate --clean && allure open",
-    "cypress:allure:run:prod": "SET ENV=prod & npm run cypress:allure:run",
-    "cypress:mochawesome:run": "node .\\scripts\\cypress.js",
-    "cypress:mochawesome:run:prod": "SET ENV=prod & npm run cypress:mochawesome:run",
-    "cypress:all:run": "npm run cypress:delete-reports & npm run cypress:mochawesome:run & allure generate --clean && allure open",
-    "cypress:all:run:prod": "SET ENV=prod & npm run cypress:all:run"
+    "cypress:open:prod": "npm run set-prod & npm run cypress:open",
+    "cypress:run": "node .\\scripts\\cypress.js",
+    "cypress:run:prod": "npm run set-prod & npm run cypress:run",
+    "cypress:all:run": "npm run cypress:delete-reports & npm run cypress:run & npm run cypress:allure",
+    "cypress:all:run:prod": "npm run set-prod & npm run cypress:all:run"
   },
   "private": true,
   "dependencies": {
