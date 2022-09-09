@@ -6,7 +6,7 @@ describe('Data Driven Commands Tests', () => {
 
     it('Chained Commands ' + commands.toString(), () => {
 
-      cy.allure().feature('Command Line Editor').story("Apply Command").testID('CL-DD-01').owner('alopez@cas.org').tag('regression', 'command-line')
+      cy.allure().feature('Command Line Editor').story("Apply Command").testID('CL-DD-01').owner('albertolop@gmail.com').tag('regression', 'command-line')
 
       cy.allure().logStep('Executing chained commands ' + commands.toString())
       cy.goToChainCommands(commands)
