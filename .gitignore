@@ -40,3 +40,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# My ignored files
+/package-lock.json
+/.vscode
+/src/assets/images/cas-new-logo-sized_0.png
