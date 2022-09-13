@@ -39,6 +39,7 @@
     "@types/jasmine": "~4.0.0",
     "allure-commandline": "^2.18.1",
     "cypress": "^10.6.0",
+    "cypress-grep": "^3.0.3",
     "cypress-teamcity-reporter": "^3.0.0",
     "jasmine-core": "~4.3.0",
     "junit": "^1.4.9",

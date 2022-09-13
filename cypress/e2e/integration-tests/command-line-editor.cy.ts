@@ -1,16 +1,13 @@
 describe('Command Line Editor Tests', () => {
 
   beforeEach(() => {
-
     cy.allure().logStep('Going to Command Line Editor module')
-
     cy.visit('/commandLineEditor')
-
   })
 
   describe('Chained Commands', () => {
 
-    it('Ring65 -> Att Ring5 Double Bond 7 (Button)', () => {
+    it('Ring65 -> Att Ring5 Double Bond 7 (Button)', { tags: ['@regression', '@command-line'] }, () => {
 
       cy.allure().feature("Command Line Editor").story("Apply Command").testID("CL-CC-1").owner('albertolop@gmail.com').tag('regression', 'smoke', 'command-line')
 
@@ -31,7 +28,7 @@ describe('Command Line Editor Tests', () => {
 
     })
 
-    it('Ring 65 -> Att Ring5 Double Bond 7 -> Ring6 13 14 (Enter)', () => {
+    it('Ring 65 -> Att Ring5 Double Bond 7 -> Ring6 13 14 (Enter)', { tags: ['@regression', '@command-line', '@smoke']},  () => {
 
       cy.allure().feature("Command Line Editor").story("Apply Command").testID("CL-CC-2").owner('albertolop@gmail.com').tag('regression', 'command-line')
 
@@ -66,7 +63,7 @@ describe('Command Line Editor Tests', () => {
 
   })
 
-  describe('Undo Commands', () => {
+  describe('Undo Commands', { tags: ['@regression', '@command-line']}, () => {
 
     it('3 Chained Commands and 2 Undo', () => {
 
@@ -90,7 +87,7 @@ describe('Command Line Editor Tests', () => {
 
     })
 
-    it('2 Chained Commands and 2 Undo', () => {
+    it('2 Chained Commands and 2 Undo', { tags: ['@regression', '@command-line'] }, () => {
 
       cy.allure().feature("Command Line Editor").story("Undo Command").testID("CL-UC-2").owner('albertolop@gmail.com').tag('regression', 'command-line')
 
@@ -114,7 +111,7 @@ describe('Command Line Editor Tests', () => {
 
     })
 
-    it('1 Command and 2 Undo', () => {
+    it('1 Command and 2 Undo', { tags: ['@regression', '@command-line', '@smoke'] }, () => {
 
       cy.allure().feature("Command Line Editor").story("Undo Command").testID("CL-UC-3").owner('albertolop@gmail.com').tag('regression', 'smoke', 'command-line')
 

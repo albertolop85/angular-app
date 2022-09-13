@@ -18,7 +18,7 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "types": ["@shelex/cypress-allure-plugin"],
+    "types": ["@shelex/cypress-allure-plugin", "cypress-grep"],
     "lib": [
       "es2020",
       "dom",

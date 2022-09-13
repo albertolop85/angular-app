@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
+/// <reference types='cypress-grep' />
 
 declare namespace Cypress {
 
   interface Chainable<Subject = any> {
+
       /**
        * Custom command to execute an array of commands sequentially
        */

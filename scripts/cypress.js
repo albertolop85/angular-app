@@ -1,8 +1,16 @@
 const cypress = require('cypress')
 const marge = require('mochawesome-report-generator')
 const { merge } = require('mochawesome-merge')
+const yargs = require('yargs')
 
-cypress.run().then(
+const { tags } = yargs.option('tags', {
+    type: String,
+    default: ['']
+  }).argv;
+
+cypress.run({
+  env: `grepTags=${tags}`
+}).then(
   () => {
     generateReport()
   },

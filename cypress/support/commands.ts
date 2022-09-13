@@ -1,5 +1,8 @@
 require('@shelex/cypress-allure-plugin');
 
+const registerCypressGrep = require('cypress-grep')
+registerCypressGrep()
+
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to

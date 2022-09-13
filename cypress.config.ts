@@ -1,6 +1,8 @@
 import { defineConfig } from "cypress"
 
 const allureWriter = require('@shelex/cypress-allure-plugin/writer')
+const registerCypressGrep = require('cypress-grep/src/plugin')
+
 const envFile = require(`./cypress/env/${process.env['ENV']?.trim() || 'local'}.json`)
 
 export default defineConfig({
@@ -8,8 +10,9 @@ export default defineConfig({
     baseUrl: envFile.baseUrl,
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      allureWriter(on, config);
-      return config;
+      registerCypressGrep(config)
+      allureWriter(on, config)
+      return config
     },
     excludeSpecPattern: [
       "**/1-getting-started/*",
@@ -24,10 +27,4 @@ export default defineConfig({
     html: false,
     json: true
   }
-  /*
-  reporter: 'junit',
-  reporterOptions: {
-    mochaFile: 'results/my-test-output.xml',
-    toConsole: true
-  }*/
 });

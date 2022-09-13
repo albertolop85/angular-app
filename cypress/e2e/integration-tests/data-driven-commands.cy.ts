@@ -4,7 +4,7 @@ describe('Data Driven Commands Tests', () => {
 
   commandsList.forEach((commands) => {
 
-    it('Chained Commands ' + commands.toString(), () => {
+    it('Chained Commands ' + commands.toString(), { tags: ['@regression', '@command-line'] },  () => {
 
       cy.allure().feature('Command Line Editor').story("Apply Command").testID('CL-DD-01').owner('albertolop@gmail.com').tag('regression', 'command-line')
 
