@@ -22,6 +22,8 @@ export default defineConfig({
   env: envFile,
   chromeWebSecurity: false,
   reporter: 'mochawesome',
+  screenshotOnRunFailure: true,
+  screenshotsFolder: "mochawesome-report/assets",
   reporterOptions: {
     overwrite: false,
     html: false,

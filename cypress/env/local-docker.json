@@ -1,0 +1,5 @@
+{
+  "allure": "true",
+  "baseUrl": "http://host.docker.internal:4200",
+  "grepFilterSpecs": true
+}
