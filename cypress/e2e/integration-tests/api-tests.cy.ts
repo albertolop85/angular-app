@@ -34,4 +34,44 @@ describe('API Tests', () => {
     cy.get('@getCommandsResponse').should('have.property', 'commands').should('have.lengthOf', 3)
   })
 
+  it('Apply Command API Test', { tags: ['@api'] }, () => {
+
+    let requestBody = { command: 'arr r5 14' }
+
+    cy.request('POST', '/api/applyCommand', requestBody).then((Response) => {
+
+      expect(Response.status).equal(200)
+      expect(Response.body.appliedCommand).equal(requestBody.command)
+
+      let size = Response.body.commands.length
+
+      expect(Response.body.commands[size-1].command).equal(requestBody.command)
+    })
+  })
+
+  it('Undo Command API Test', { tags: ['@api'] }, function() {
+
+    cy.request('GET', '/api/getCommands').as('commands')
+
+    cy.then(() => {
+
+      let size = this['commands'].body.commands.length;
+      let undoCommand = this['commands'].body.commands[size-1].command;
+
+      cy.request('DELETE', '/api/undoCommand').then((Response) => {
+
+        expect(Response.status).equal(200)
+        expect(Response.body.undoCommand).equal(undoCommand)
+        expect(Response.body.commands.length).equal(size-1)
+
+        Array.from({length: size-1}, (value, key) => key).forEach(n => {
+          expect(Response.body.commands[n].command).equal(this['commands'].body.commands[n].command)
+        })
+
+      })
+    })
+
+
+  })
+
 })
