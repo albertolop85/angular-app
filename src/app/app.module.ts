@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, DoBootstrap, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms'
@@ -31,6 +31,17 @@ const routes: Routes = [
     FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [AppComponent]
+  //bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements DoBootstrap {
+
+  ngDoBootstrap(appRef: ApplicationRef): void {
+    appRef.bootstrap(AppComponent)
+    // @ts-ignore
+    if (window.Cypress) {
+      // @ts-ignore
+      window.appRef = appRef
+    }
+  }
+}

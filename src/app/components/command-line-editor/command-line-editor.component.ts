@@ -12,19 +12,24 @@ export class CommandLineEditorComponent implements OnInit {
     if (window.Cypress) {
       // @ts-ignore
       window.CommandLineEditorComponent = this
+      // @ts-ignore
+      window.CommandLineEditorComponent.apply = (value) =>  {
+        this.command = value
+        this.applyCommand()
+      }
     }
   }
 
   ngOnInit(): void {
   }
 
-  applyCommand() {
+  public applyCommand() {
     this.commandHistory.push(this.command)
     this.command = ""
     this.updateStatus("Command applied successfully")
   }
 
-  undoCommand() {
+  public undoCommand() {
     let cmd = this.commandHistory.pop()
     if (cmd) {
       this.undoCommandHistory.push(cmd)
@@ -34,7 +39,7 @@ export class CommandLineEditorComponent implements OnInit {
     }
   }
 
-  redoCommand() {
+  public redoCommand() {
     let cmd = this.undoCommandHistory.pop()
     if (cmd) {
       this.commandHistory.push(cmd)

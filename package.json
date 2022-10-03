@@ -12,6 +12,8 @@
     "cypress:allure": "allure generate --clean && allure open",
     "cypress:open": "npx cypress open",
     "cypress:open:prod": "npm run set-prod & npm run cypress:open",
+    "cypress:run:api": "SET ENV=local-api && node .\\scripts\\cypress.js --tags='@api'",
+    "cypress:run:api:allure": "SET ENV=local-api && node .\\scripts\\cypress.js --tags='@api' && npm run cypress:allure",
     "cypress:run": "node .\\scripts\\cypress.js",
     "cypress:run:prod": "npm run set-prod & npm run cypress:run",
     "cypress:all:run": "npm run cypress:delete-reports & npm run cypress:run & npm run cypress:allure",

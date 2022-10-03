@@ -41,6 +41,17 @@ registerCypressGrep()
 //   }
 // }
 
+const getAppRef = () =>
+  cy.window().should('have.property', 'appRef')
+
+/**
+ * Calls `appRef.tick()` to force UI refresh
+*/
+const tick = () =>
+  getAppRef()
+    // @ts-ignore
+    .invoke('tick')
+
 Cypress.Commands.add('goToChainCommands', (commands: Array<string>) => {
 
   cy.visit('/commandLineEditor')
@@ -64,9 +75,6 @@ Cypress.Commands.add('getCommandLineEditor', () => {
 
 // IMPROVE THIS ONE LATER: https://glebbahmutov.com/blog/testing-angular-application-via-app-actions/
 Cypress.Commands.add('applyCommand', (cmd: string) => {
-  cy.getCommandLineEditor()
-    .should('have.property', 'commandHistory')
-    .then(commandHistory => {
-      commandHistory.push(cmd)
-    })
+  cy.window().its('CommandLineEditorComponent').invoke('apply', cmd)
+  tick()
 })
