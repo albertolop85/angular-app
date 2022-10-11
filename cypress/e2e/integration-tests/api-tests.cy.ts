@@ -28,8 +28,6 @@ describe('API Tests', () => {
 
     cy.request('GET', '/api/getCommands').then(Response => cy.wrap(Response.body).as('getCommandsResponse'))
 
-    console.log(cy.get('@getCommandsResponse'))
-
     cy.get('@getCommandsResponse').should('have.property', 'type').should('eq', 'commandsList')
     cy.get('@getCommandsResponse').should('have.property', 'commands').should('have.lengthOf', 3)
   })

@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 /// <reference types='cypress-grep' />
+/// <reference types='cypress-real-events' />
 
 declare namespace Cypress {
 
